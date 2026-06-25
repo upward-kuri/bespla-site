@@ -21,31 +21,118 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* Image placeholders */
-  .img-placeholder {
-    background: #d4e4f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    color: #7d8a93;
-    font-size: 13px;
-    font-family: 'Noto Sans JP', sans-serif;
-    text-align: center;
-    padding: 20px;
+  /* ── ヘッダー ── */
+  .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid #e0e8ef; }
+  .site-header__inner { max-width: 1120px; margin: 0 auto; padding: 0 28px; height: 74px; display: flex; align-items: center; justify-content: space-between; }
+  .site-nav { display: flex; gap: 30px; align-items: center; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: #1f2a33; margin: 5px 0; border-radius: 2px; transition: .3s; }
+
+  /* ── ヒーロー ── */
+  .hero__inner { max-width: 1120px; margin: 0 auto; padding: 84px 28px 76px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  .hero__img { width: 100%; height: 480px; object-fit: cover; border-radius: 6px; box-shadow: 0 24px 60px -28px rgba(21,104,166,.5); animation: bp-rise .9s ease both; }
+
+  /* ── 指標バー ── */
+  .stats__inner { max-width: 1120px; margin: 0 auto; padding: 42px 28px; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; text-align: center; }
+
+  /* ── 事業 4工程グリッド ── */
+  .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: #d4e2ee; border: 1px solid #d4e2ee; }
+
+  /* ── 背景・目的グリッド ── */
+  .bg-grid { max-width: 1120px; margin: 0 auto; padding: 92px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+  /* ── 新工場グリッド ── */
+  .plant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .plant-img { width: 100%; height: 360px; object-fit: cover; border-radius: 6px; box-shadow: 0 20px 50px -28px rgba(21,104,166,.45); }
+
+  /* ── 環境・SDGs 3列 ── */
+  .three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+  /* ── 会社概要テーブル ── */
+  .company-row { display: grid; grid-template-columns: 220px 1fr; gap: 0; padding: 20px 0; border-bottom: 1px solid #3f7eb0; }
+  .company-row:last-child { border-bottom: none; }
+
+  /* ── モバイル ── */
+  @media (max-width: 767px) {
+    /* ヘッダーナビ */
+    .site-header__inner { padding: 0 18px; }
+    .nav-toggle { display: block; }
+    .site-nav {
+      display: none;
+      position: absolute; top: 74px; left: 0; right: 0;
+      background: #fff; border-bottom: 1px solid #e0e8ef;
+      flex-direction: column; gap: 0; padding: 8px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+    .site-nav.is-open { display: flex; }
+    .site-nav a { padding: 14px 24px; font-size: 15px; width: 100%; border-radius: 0; }
+    .site-nav a:last-child { margin: 8px 16px; width: calc(100% - 32px); text-align: center; border-radius: 4px; }
+
+    /* ヒーロー */
+    .hero__inner { grid-template-columns: 1fr; padding: 48px 18px 40px; gap: 32px; }
+    .hero__inner h1 { font-size: 32px !important; }
+    .hero__img { height: 240px; }
+
+    /* 指標バー */
+    .stats__inner { grid-template-columns: repeat(2,1fr); padding: 32px 18px; gap: 20px; }
+
+    /* メッセージ */
+    .message-section { padding: 64px 18px 48px !important; }
+
+    /* 事業内容 */
+    .business-section .inner { padding: 64px 18px !important; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .accept-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+    /* 背景 */
+    .bg-grid { grid-template-columns: 1fr; padding: 64px 18px; gap: 32px; }
+    .bg-grid h2 { font-size: 24px !important; }
+
+    /* 新工場 */
+    .plant-section .inner { padding: 64px 18px !important; }
+    .plant-grid { grid-template-columns: 1fr; gap: 28px; }
+    .plant-img { height: 220px; }
+
+    /* 環境・SDGs */
+    .environment-section { padding: 64px 18px !important; }
+    .sdgs-section .inner { padding: 64px 18px !important; }
+    .three-col { grid-template-columns: 1fr; }
+
+    /* 会社概要 */
+    .company-section .inner { padding: 64px 18px !important; }
+    .company-row { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
+
+    /* お問い合わせ */
+    .contact-section { padding: 64px 18px !important; }
+    .contact-box { padding: 24px 20px !important; }
+
+    /* フッター */
+    .footer-inner { padding: 32px 18px !important; flex-direction: column; align-items: flex-start !important; gap: 10px !important; }
+
+    /* 汎用セクション余白 */
+    section { padding-left: 0 !important; padding-right: 0 !important; }
+  }
+
+  @media (max-width: 480px) {
+    .process-grid { grid-template-columns: 1fr; }
+    .stats__inner { grid-template-columns: 1fr 1fr; }
+    .hero__inner h1 { font-size: 28px !important; }
   }
 </style>
 </head>
 <body>
 
   <!-- ヘッダー -->
-  <header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,.94); backdrop-filter:blur(8px); border-bottom:1px solid #e0e8ef;">
-    <div style="max-width:1120px; margin:0 auto; padding:0 28px; height:74px; display:flex; align-items:center; justify-content:space-between;">
+  <header class="site-header">
+    <div class="site-header__inner">
       <a href="#top" style="display:flex; align-items:baseline; gap:10px;">
         <span style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:23px; color:#1568a6; letter-spacing:.02em;">ベスプラ</span>
         <span style="font-size:12px; color:#7d8a93; letter-spacing:.18em;">BESPLA INC.</span>
       </a>
-      <nav style="display:flex; gap:30px; align-items:center;">
+      <button class="nav-toggle" aria-label="メニュー" onclick="this.nextElementSibling.classList.toggle('is-open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
         <a href="#business" style="color:#3a4750; font-size:14px; font-weight:500;">事業内容</a>
         <a href="#plant" style="color:#3a4750; font-size:14px; font-weight:500;">新工場計画</a>
         <a href="#environment" style="color:#3a4750; font-size:14px; font-weight:500;">環境への配慮</a>
@@ -57,7 +144,7 @@
 
   <!-- ヒーロー -->
   <section id="top" style="position:relative; background:linear-gradient(180deg,#eef5fb 0%,#ffffff 100%);">
-    <div style="max-width:1120px; margin:0 auto; padding:84px 28px 76px; display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;">
+    <div class="hero__inner">
       <div style="animation:bp-rise .7s ease both;">
         <div style="display:inline-block; font-size:12px; letter-spacing:.22em; color:#1568a6; border-left:3px solid #2a8fd0; padding-left:12px; margin-bottom:26px;">CIRCULAR ECONOMY · YOKOHAMA</div>
         <h1 style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:46px; line-height:1.5; margin:0 0 24px; color:#16242e; letter-spacing:.01em;">プラスチックを、<br>もう一度資源に。</h1>
@@ -67,15 +154,15 @@
           <a href="#company" style="color:#1568a6; border:1px solid #1568a6; font-size:14px; font-weight:500; padding:14px 28px; border-radius:4px;">会社概要</a>
         </div>
       </div>
-      <div style="animation:bp-rise .9s ease both;">
-        <div class="img-placeholder" style="width:100%; height:480px; box-shadow:0 24px 60px -28px rgba(21,104,166,.5);">プラント／リサイクルの写真</div>
+      <div>
+        <img class="hero__img" src="34390776_s.jpg" alt="プラスチック資源の循環イメージ">
       </div>
     </div>
   </section>
 
   <!-- 指標バー -->
   <section style="background:#1568a6; color:#eaf2fa;">
-    <div style="max-width:1120px; margin:0 auto; padding:42px 28px; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;">
+    <div class="stats__inner">
       <div>
         <div style="font-family:'Noto Serif JP',serif; font-size:34px; font-weight:700; color:#fff;">最大310<span style="font-size:16px; font-weight:500;">t/日</span></div>
         <div style="font-size:13px; color:#b9d6ee; margin-top:6px;">計画処理能力</div>
@@ -96,7 +183,7 @@
   </section>
 
   <!-- メッセージ -->
-  <section style="max-width:860px; margin:0 auto; padding:92px 28px 76px; text-align:center;">
+  <section class="message-section" style="max-width:860px; margin:0 auto; padding:92px 28px 76px; text-align:center;">
     <div style="font-size:12px; letter-spacing:.22em; color:#1568a6; margin-bottom:18px;">MESSAGE</div>
     <h2 style="font-family:'Noto Serif JP',serif; font-weight:600; font-size:30px; line-height:1.7; margin:0 0 28px; color:#16242e;">循環型社会の構築に貢献する、<br>地域のリサイクル拠点へ。</h2>
     <p style="font-size:15.5px; color:#4a5763; margin:0 auto 18px; max-width:680px;">ベスプラ株式会社は、ベストトレーディング株式会社が本事業のために設立した新会社です。母体であるベストトレーディングは、神奈川県厚木市で混合容器（ペットボトル・缶・びん）や牛乳パックの再資源化を、健常者と障がい者がともに取り組んできました。</p>
@@ -104,12 +191,12 @@
   </section>
 
   <!-- 事業内容 -->
-  <section id="business" style="background:#eef4f9;">
-    <div style="max-width:1120px; margin:0 auto; padding:92px 28px;">
+  <section id="business" class="business-section" style="background:#eef4f9;">
+    <div class="inner" style="max-width:1120px; margin:0 auto; padding:92px 28px;">
       <div style="font-size:12px; letter-spacing:.22em; color:#1568a6; margin-bottom:14px;">BUSINESS</div>
       <h2 style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:32px; margin:0 0 14px; color:#16242e;">事業内容</h2>
       <p style="font-size:15px; color:#4a5763; margin:0 0 48px; max-width:620px;">受け入れたプラスチック資源は、4つの工程を経て再商品化の原料となり、地域で再び活用されます。</p>
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d4e2ee; border:1px solid #d4e2ee;">
+      <div class="process-grid">
         <div style="background:#ffffff; padding:34px 26px;">
           <div style="font-family:'Noto Serif JP',serif; font-size:15px; color:#2a8fd0; font-weight:700; margin-bottom:14px;">01</div>
           <h3 style="font-size:18px; margin:0 0 10px; color:#16242e;">選別</h3>
@@ -133,7 +220,7 @@
       </div>
       <div style="margin-top:42px; background:#ffffff; border:1px solid #d4e2ee; padding:36px 40px;">
         <h3 style="font-size:17px; margin:0 0 12px; color:#16242e;">受け入れるもの・つくるもの</h3>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+        <div class="accept-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
           <div>
             <div style="font-size:12px; letter-spacing:.1em; color:#1568a6; margin-bottom:6px;">受入対象</div>
             <p style="font-size:14px; color:#4a5763;">プラスチック製容器包装・プラスチック製品などの家庭系プラスチック資源</p>
@@ -148,7 +235,7 @@
   </section>
 
   <!-- 背景・目的 -->
-  <section style="max-width:1120px; margin:0 auto; padding:92px 28px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;">
+  <section class="bg-grid">
     <div>
       <div style="font-size:12px; letter-spacing:.22em; color:#1568a6; margin-bottom:14px;">BACKGROUND</div>
       <h2 style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:30px; margin:0 0 22px; color:#16242e; line-height:1.6;">なぜ、いま<br>この事業が必要なのか。</h2>
@@ -172,13 +259,13 @@
   </section>
 
   <!-- 新工場計画 -->
-  <section id="plant" style="background:#eef4f9;">
-    <div style="max-width:1120px; margin:0 auto; padding:92px 28px;">
+  <section id="plant" class="plant-section" style="background:#eef4f9;">
+    <div class="inner" style="max-width:1120px; margin:0 auto; padding:92px 28px;">
       <div style="font-size:12px; letter-spacing:.22em; color:#1568a6; margin-bottom:14px;">NEW PLANT</div>
       <h2 style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:32px; margin:0 0 14px; color:#16242e;">新工場計画</h2>
       <p style="font-size:15px; color:#4a5763; margin:0 0 48px; max-width:640px;">横浜市泉区和泉町に、家庭系プラスチック資源再商品化プラントの建設を計画しています。周辺環境への配慮を重ねた施設づくりを進めます。</p>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;">
-        <div class="img-placeholder" style="width:100%; height:360px; box-shadow:0 20px 50px -28px rgba(21,104,166,.45);">工場完成イメージ</div>
+      <div class="plant-grid">
+        <img class="plant-img" src="factory3.webp" alt="ベストトレーディング 工場外観">
         <div style="background:#ffffff; border:1px solid #d4e2ee; border-radius:6px; overflow:hidden;">
           <div style="display:flex; justify-content:space-between; padding:18px 28px; border-bottom:1px solid #e3ebf2;"><span style="font-size:13.5px; color:#7d8a93;">計画地</span><span style="font-size:14px; color:#1f2a33; text-align:right;">横浜市泉区和泉町7055-1 ほか</span></div>
           <div style="display:flex; justify-content:space-between; padding:18px 28px; border-bottom:1px solid #e3ebf2;"><span style="font-size:13.5px; color:#7d8a93;">敷地面積</span><span style="font-size:14px; color:#1f2a33;">約 8,077 ㎡</span></div>
@@ -192,11 +279,11 @@
   </section>
 
   <!-- 環境への配慮 -->
-  <section id="environment" style="max-width:1120px; margin:0 auto; padding:92px 28px;">
+  <section id="environment" class="environment-section" style="max-width:1120px; margin:0 auto; padding:92px 28px;">
     <div style="font-size:12px; letter-spacing:.22em; color:#1568a6; margin-bottom:14px;">ENVIRONMENT</div>
     <h2 style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:32px; margin:0 0 14px; color:#16242e;">環境・地域への配慮</h2>
     <p style="font-size:15px; color:#4a5763; margin:0 0 48px; max-width:640px;">隣接する県立高校や近隣住民の生活環境に配慮し、計画段階からさまざまな環境対策を検討しています。</p>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+    <div class="three-col">
       <div style="border:1px solid #d9e4ee; border-radius:6px; padding:30px 28px; background:#fff;">
         <h3 style="font-size:16px; margin:0 0 8px; color:#1568a6;">騒音・粉じんの抑制</h3>
         <p style="font-size:13.5px; color:#5b6770;">再商品化設備は建屋内に設置し、敷地境界に防音壁を設置します。</p>
@@ -225,12 +312,12 @@
   </section>
 
   <!-- 社会的意義 / SDGs -->
-  <section style="background:#eef4f9;">
-    <div style="max-width:1120px; margin:0 auto; padding:92px 28px;">
+  <section class="sdgs-section" style="background:#eef4f9;">
+    <div class="inner" style="max-width:1120px; margin:0 auto; padding:92px 28px;">
       <div style="font-size:12px; letter-spacing:.22em; color:#1568a6; margin-bottom:14px;">SUSTAINABILITY</div>
       <h2 style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:32px; margin:0 0 14px; color:#16242e;">事業の社会的意義</h2>
       <p style="font-size:15px; color:#4a5763; margin:0 0 48px; max-width:660px;">本事業は、再資源化率の向上・廃棄物の削減・障がい者雇用の推進・脱炭素化への貢献などを通じて、持続可能な社会づくりに寄与し、次のSDGsと高い整合性を持ちます。</p>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+      <div class="three-col">
         <div style="border:1px solid #d9e4ee; border-top:4px solid #bf8b2e; padding:32px 30px; background:#fff; border-radius:0 0 6px 6px;">
           <div style="font-family:'Noto Serif JP',serif; font-size:15px; font-weight:700; color:#bf8b2e; margin-bottom:12px;">目標 12</div>
           <h3 style="font-size:17px; margin:0 0 8px; color:#16242e;">つくる責任 つかう責任</h3>
@@ -251,28 +338,28 @@
   </section>
 
   <!-- 会社概要 -->
-  <section id="company" style="background:#1568a6; color:#eaf2fa;">
-    <div style="max-width:920px; margin:0 auto; padding:92px 28px;">
+  <section id="company" class="company-section" style="background:#1568a6; color:#eaf2fa;">
+    <div class="inner" style="max-width:920px; margin:0 auto; padding:92px 28px;">
       <div style="font-size:12px; letter-spacing:.22em; color:#b9d6ee; margin-bottom:14px;">COMPANY</div>
       <h2 style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:32px; margin:0 0 44px; color:#fff;">会社概要</h2>
       <div>
-        <div style="display:grid; grid-template-columns:220px 1fr; gap:0; padding:20px 0; border-bottom:1px solid #3f7eb0;">
+        <div class="company-row">
           <div style="font-size:14px; color:#b9d6ee;">事業者の氏名及び住所</div>
           <div style="font-size:15px; color:#fff; line-height:1.85;">ベスプラ株式会社<br>代表取締役社長　堀内 継由<br>神奈川県厚木市金田1141-3</div>
         </div>
-        <div style="display:grid; grid-template-columns:220px 1fr; gap:0; padding:20px 0; border-bottom:1px solid #3f7eb0;">
+        <div class="company-row">
           <div style="font-size:14px; color:#b9d6ee;">事業の名称</div>
           <div style="font-size:15px; color:#fff;">家庭系プラスチック資源再商品化プラント建設計画</div>
         </div>
-        <div style="display:grid; grid-template-columns:220px 1fr; gap:0; padding:20px 0; border-bottom:1px solid #3f7eb0;">
+        <div class="company-row">
           <div style="font-size:14px; color:#b9d6ee;">事業の種類・規模</div>
           <div style="font-size:15px; color:#fff; line-height:1.85;">廃棄物処理施設の建設（第２分類事業）<br><span style="font-size:13px; color:#cfe2f2;">横浜市環境影響評価条例施行規則別表第１「６廃棄物処理施設の建設(5)廃棄物中間処理施設の新設の事業」</span><br>敷地面積　約 8,077 ㎡</div>
         </div>
-        <div style="display:grid; grid-template-columns:220px 1fr; gap:0; padding:20px 0; border-bottom:1px solid #3f7eb0;">
+        <div class="company-row">
           <div style="font-size:14px; color:#b9d6ee;">計画区域</div>
           <div style="font-size:15px; color:#fff;">横浜市泉区和泉町7055-1 ほか（以下、「計画地」という）</div>
         </div>
-        <div style="display:grid; grid-template-columns:220px 1fr; gap:0; padding:20px 0; border-bottom:1px solid #3f7eb0;">
+        <div class="company-row">
           <div style="font-size:14px; color:#b9d6ee; line-height:1.85;">事業計画に係る<br>許可等の内容</div>
           <div style="font-size:14.5px; color:#fff; line-height:2;">
             ＜一般廃棄物処分業の許可＞<br>
@@ -285,7 +372,7 @@
             <span style="font-size:13px; color:#cfe2f2;">宅地造成及び特定盛土等規制法 第12条第１項</span>
           </div>
         </div>
-        <div style="display:grid; grid-template-columns:220px 1fr; gap:0; padding:20px 0;">
+        <div class="company-row">
           <div style="font-size:14px; color:#b9d6ee;">親会社</div>
           <div style="font-size:15px; color:#fff;">ベストトレーディング株式会社</div>
         </div>
@@ -294,11 +381,11 @@
   </section>
 
   <!-- お問い合わせ -->
-  <section id="contact" style="max-width:760px; margin:0 auto; padding:88px 28px; text-align:center;">
+  <section id="contact" class="contact-section" style="max-width:760px; margin:0 auto; padding:88px 28px; text-align:center;">
     <div style="font-size:12px; letter-spacing:.22em; color:#1568a6; margin-bottom:14px;">CONTACT</div>
     <h2 style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:30px; margin:0 0 18px; color:#16242e;">お問い合わせ</h2>
     <p style="font-size:15px; color:#4a5763; margin:0 0 32px;">本事業に関するお問い合わせは、下記までご連絡ください。</p>
-    <div style="display:inline-block; text-align:left; background:#eef5fb; border:1px solid #d4e2ee; padding:30px 44px; border-radius:6px;">
+    <div class="contact-box" style="display:inline-block; text-align:left; background:#eef5fb; border:1px solid #d4e2ee; padding:30px 44px; border-radius:6px;">
       <div style="font-family:'Noto Serif JP',serif; font-size:18px; color:#1568a6; font-weight:600; margin-bottom:10px;">ベスプラ株式会社</div>
       <div style="font-size:14px; color:#4a5763; line-height:2;">神奈川県厚木市金田1141-3</div>
     </div>
@@ -306,7 +393,7 @@
 
   <!-- フッター -->
   <footer style="background:#0c3354; color:#b9cfe3;">
-    <div style="max-width:1120px; margin:0 auto; padding:44px 28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+    <div class="footer-inner" style="max-width:1120px; margin:0 auto; padding:44px 28px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div style="display:flex; align-items:baseline; gap:10px;">
         <span style="font-family:'Noto Serif JP',serif; font-weight:700; font-size:18px; color:#fff;">ベスプラ株式会社</span>
         <span style="font-size:11px; color:#7aa8cf; letter-spacing:.16em;">BESPLA INC.</span>
