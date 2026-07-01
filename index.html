@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // プレビュー用の GitHub Pages (*.github.io) では検索エンジンにインデックスさせない。
+  // 本番 (bpla.co.jp など) では通常どおりインデックス可能。
+  if (location.hostname.endsWith('github.io')) {
+    document.write('<meta name="robots" content="noindex, nofollow">');
+  }
+</script>
 <title>ベスプラ株式会社</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
